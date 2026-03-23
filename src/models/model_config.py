@@ -5,12 +5,12 @@ Provides factory functions for the Anthropic LLM and OpenAI embeddings model.
 
 from langchain.chat_models import init_chat_model
 from langchain_core.language_models import BaseChatModel
-from langchain_openai import OpenAIEmbeddings
+from langchain_huggingface import HuggingFaceEmbeddings
 from src.config.settings import (
     ANTHROPIC_MODEL,
     AGENT_TEMPERATURE,
     AGENT_MAX_TOKENS,
-    OPENAI_EMBEDDING_MODEL,
+    HUGGINGFACE_EMBEDDING_MODEL,
 )
 
 
@@ -29,11 +29,11 @@ def create_chat_model() -> BaseChatModel:
     )
 
 
-def create_embeddings() -> OpenAIEmbeddings:
+def create_embeddings() -> HuggingFaceEmbeddings:
     """
-    Instantiates the OpenAI embeddings model.
+    Instantiates the HuggingFace embeddings model.
 
     Returns:
-        OpenAIEmbeddings: A configured text-embedding-3-small instance.
+        HuggingFaceEmbeddings: A configured all-MiniLM-L6-v2 instance.
     """
-    return OpenAIEmbeddings(model=OPENAI_EMBEDDING_MODEL)
+    return HuggingFaceEmbeddings(model_name=HUGGINGFACE_EMBEDDING_MODEL)

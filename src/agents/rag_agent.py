@@ -11,8 +11,7 @@ from langchain_core.language_models import BaseChatModel
 from langchain_core.tools import BaseTool
 from langchain_core.output_parsers import StrOutputParser
 from langchain_core.prompts import ChatPromptTemplate
-from langchain_core.runnables import RunnablePassthrough
-from langchain_pinecone import PineconeVectorStore
+from langchain_core.runnables import RunnablePassthrough, RunnableLambda
 from src.config.settings import RETRIEVAL_TOP_K
 
 
@@ -53,7 +52,7 @@ def create_rag_agent(model: BaseChatModel, tools: list[BaseTool]):
     )
 
 
-def create_lcel_chain(model: BaseChatModel, vector_store: PineconeVectorStore):
+def create_lcel_chain(model: BaseChatModel, vector_store):
     """
     Assembles a single-pass LCEL RAG chain without tool calls.
 
@@ -61,23 +60,25 @@ def create_lcel_chain(model: BaseChatModel, vector_store: PineconeVectorStore):
 
     Args:
         model (BaseChatModel): The language model to use.
-        vector_store (PineconeVectorStore): The vector store to retrieve from.
+        vector_store: The vector store to retrieve from.
 
     Returns:
         Runnable: A LangChain LCEL chain.
     """
     retriever = vector_store.as_retriever(search_kwargs={"k": RETRIEVAL_TOP_K})
 
-    def format_docs(docs):
-        return "\n\n".join(doc.page_content for doc in docs)
-
     prompt = ChatPromptTemplate.from_messages([
         ("system", LCEL_SYSTEM_PROMPT),
         ("human", "{question}"),
     ])
 
+    def format_docs(docs: list) -> str:
+        return "\n\n".join(doc.page_content for doc in docs)
+
+    context_chain = retriever | RunnableLambda(format_docs)
+
     return (
-        {"context": retriever | format_docs, "question": RunnablePassthrough()}
+        {"context": context_chain, "question": RunnablePassthrough()}
         | prompt
         | model
         | StrOutputParser()
