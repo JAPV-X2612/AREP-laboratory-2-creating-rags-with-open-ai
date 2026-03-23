@@ -36,9 +36,9 @@ def get_anthropic_api_key() -> str:
     return _require("ANTHROPIC_API_KEY")
 
 
-def get_openai_api_key() -> str:
-    """Returns the OpenAI API key."""
-    return _require("OPENAI_API_KEY")
+def get_huggingface_token() -> str:
+    """Returns the HuggingFace API token."""
+    return _require("HF_TOKEN")
 
 
 def get_pinecone_api_key() -> str:

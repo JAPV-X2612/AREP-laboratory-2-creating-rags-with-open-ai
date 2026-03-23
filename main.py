@@ -5,7 +5,7 @@ Demonstrates both a RAG agent (multi-step tool-based retrieval) and an LCEL
 chain (single-pass retrieval and generation) over an indexed blog post.
 """
 
-from src.config.settings import get_anthropic_api_key, get_openai_api_key, get_pinecone_api_key
+from src.config.settings import get_anthropic_api_key, get_huggingface_token, get_pinecone_api_key
 from src.models.model_config import create_chat_model, create_embeddings
 from src.indexing.document_loader import load_documents
 from src.indexing.document_splitter import split_documents
@@ -76,7 +76,7 @@ def main() -> None:
         EnvironmentError: If any required API key is not configured.
     """
     get_anthropic_api_key()
-    get_openai_api_key()
+    get_huggingface_token()
     get_pinecone_api_key()
 
     embeddings = create_embeddings()
