@@ -53,7 +53,7 @@ This project implements a **Retrieval-Augmented Generation (RAG)** system that a
 
 ### Phase 1 — Indexing Pipeline
 
-<img src="assets/images/1-rag-indexing.png" alt="RAG Indexing Pipeline" width="70%">
+<img src="assets/images/1-rag-indexing.png" alt="RAG Indexing Pipeline" width="90%">
 
 The indexing phase transforms raw web content into a searchable vector store through four sequential stages:
 
@@ -64,7 +64,7 @@ The indexing phase transforms raw web content into a searchable vector store thr
 
 ### Phase 2 — Retrieval and Generation
 
-<img src="assets/images/2-rag-retrieval-generation.png" alt="RAG Retrieval and Generation" width="70%">
+<img src="assets/images/2-rag-retrieval-generation.png" alt="RAG Retrieval and Generation" width="90%">
 
 At query time, the pipeline:
 
