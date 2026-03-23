@@ -1,200 +1,158 @@
 # ===================================
-# Java + Maven Project .gitignore
+# Python Base
 # ===================================
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyo
+*.pyd
+*.pyc
+*.pdb
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+eggs/
+parts/
+var/
+sdist/
+develop-eggs/
+lib/
+lib64/
+MANIFEST
+.installed.cfg
 
 # ===================================
-# Java Compiled Files
+# Virtual Environments
 # ===================================
-*.class
-*.jar
-*.war
-*.ear
-*.nar
-hs_err_pid*
-replay_pid*
+.venv/
+venv/
+env/
+ENV/
+.env
+.env.*
+!.env.example
 
 # ===================================
-# Maven
+# Package Managers
 # ===================================
-target/
-pom.xml.tag
-pom.xml.releaseBackup
-pom.xml.versionsBackup
-pom.xml.next
-release.properties
-dependency-reduced-pom.xml
-buildNumber.properties
-.mvn/timing.properties
-.mvn/wrapper/maven-wrapper.jar
+# pip
+pip-log.txt
+pip-delete-this-directory.txt
+
+# poetry
+poetry.lock
+
+# pipenv
+Pipfile.lock
+
+# uv
+.uv/
+uv.lock
 
 # ===================================
-# IDE - IntelliJ IDEA
+# Testing & Coverage
 # ===================================
+.pytest_cache/
+.tox/
+.nox/
+htmlcov/
+.coverage
+.coverage.*
+coverage.xml
+*.cover
+nosetests.xml
+test-results/
+
+# ===================================
+# Type Checkers & Linters
+# ===================================
+.mypy_cache/
+.dmypy.json
+dmypy.json
+.ruff_cache/
+.pytype/
+
+# ===================================
+# IDEs
+# ===================================
+# JetBrains IDEs
 .idea/
 *.iml
 *.iws
 *.ipr
 out/
-.idea_modules/
 
-# ===================================
-# IDE - Eclipse
-# ===================================
-.metadata
-.classpath
-.project
-.settings/
-bin/
-tmp/
-*.tmp
-*.bak
-*.swp
-*~.nib
-local.properties
-.loadpath
-.recommenders
-.externalToolBuilders/
-*.launch
-.buildpath
-.target
-
-# ===================================
-# IDE - NetBeans
-# ===================================
-nbproject/private/
-nbbuild/
-dist/
-nbdist/
-.nb-gradle/
-
-# ===================================
-# IDE - Visual Studio Code
-# ===================================
+# VS Code
 .vscode/
-!.vscode/settings.json
-!.vscode/tasks.json
-!.vscode/launch.json
-!.vscode/extensions.json
 *.code-workspace
-.history/
+
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+
+# Spyder
+.spyderproject.cfg
+.spyproject/
+
+# Rope
+.ropeproject/
 
 # ===================================
-# Operating System Files
+# Jupyter Notebooks
 # ===================================
+.ipynb_checkpoints/
+*.ipynb
 
+# ===================================
+# LangChain / LangSmith
+# ===================================
+.langchain/
+langchain.db
+langsmith_traces/
+
+# ===================================
+# Operating Systems
+# ===================================
 # macOS
 .DS_Store
 .AppleDouble
 .LSOverride
-Icon
 ._*
-.DocumentRevisions-V100
-.fseventsd
 .Spotlight-V100
-.TemporaryItems
 .Trashes
-.VolumeIcon.icns
-.com.apple.timemachine.donotpresent
-.AppleDB
-.AppleDesktop
-Network Trash Folder
-Temporary Items
-.apdisk
 
 # Windows
 Thumbs.db
-Thumbs.db:encryptable
 ehthumbs.db
-ehthumbs_vista.db
-*.stackdump
-[Dd]esktop.ini
+Desktop.ini
 $RECYCLE.BIN/
-*.cab
-*.msi
-*.msix
-*.msm
-*.msp
-*.lnk
 
 # Linux
 *~
 .fuse_hidden*
 .directory
 .Trash-*
-.nfs*
 
 # ===================================
-# Build Tools & Package Managers
+# Secrets & Credentials
 # ===================================
-node_modules/
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-.pnpm-debug.log*
+*.pem
+*.key
+*.p12
+secrets.yaml
+secrets.json
+credentials.json
 
 # ===================================
-# Logs
+# Logs & Temporary Files
 # ===================================
 *.log
+*.tmp
+*.bak
+*.swp
+*.swo
 logs/
-*.log.*
-
-# ===================================
-# Testing & Coverage
-# ===================================
-coverage/
-*.cover
-*.py,cover
-.coverage
-.coverage.*
-htmlcov/
-.tox/
-.nox/
-.hypothesis/
-.pytest_cache/
-test-output/
-test-results/
-
-# ===================================
-# Environment & Secrets
-# ===================================
-.env
-.env.local
-.env.*.local
-.env.test
-.env.production
-*.secret
-secrets.yml
-application-local.properties
-application-secret.properties
-
-# ===================================
-# Database
-# ===================================
-*.db
-*.sqlite
-*.sqlite3
-*.sql
-*.h2.db
-
-# ===================================
-# Temporary & Cache Files
-# ===================================
-*.cache
-.cache/
-temp/
 tmp/
-*.temp
-
-# ===================================
-# Documentation Generated
-# ===================================
-javadoc/
-apidocs/
-
-# ===================================
-# Backup Files
-# ===================================
-*.backup
-*.old
-*.orig
+temp/
